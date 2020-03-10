@@ -5,8 +5,11 @@
   box-shadow:0px 2px 4px rgba(0, 0, 0, 0.18);
   position: relative;
   z-index: 3;
+  top:0;
+  left:0;
+  width: 100%;
+  position: fixed; 
   &__contents{
-    width: 100%;
     margin: 0px auto;
     padding: 8px 0px 0px;
     &__top{
@@ -23,9 +26,6 @@
       margin-top: 8px;
       &__registration{
         display: flex;
-        // margin-left: -3px;
-        // height: 44px;
-        // line-height:44px;
         &__new{
           text-align: center;
           @include button;

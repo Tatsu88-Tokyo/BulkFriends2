@@ -35,7 +35,7 @@
   }
 }
 
-.top_title{
+.top_main_title{
   font-family: 'Bangers', cursive;
   font-size: 50px;
   text-align: center;
@@ -43,10 +43,25 @@
   font-weight:600;
 }
 
-.top_subtitle{
+.top_main_subtitle{
   font-family: 'Bangers', cursive;
   font-size: 40px;
   text-align: center;
   color:$white;
   font-weight:600;
+}
+
+.top_about_title{
+  font-size: 80px;
+  text-align: center;
+  color:$white;
+  font-weight:600;
+  text-shadow: 10px 10px 10px $black;
+}
+.top_about_title_sub{
+  font-size: 50px;
+  text-align: center;
+  color:$white;
+  font-weight:600;
+  text-shadow: 10px 10px 10px $black;
 }
