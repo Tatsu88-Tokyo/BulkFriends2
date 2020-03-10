@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %meta{content:"text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %title BulkFriends2
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{:href => "https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:300|Amatic+SC:700|Anton|Bangers|Caveat|Cherry+Swash:700|Corben:700|Creepster|Economica:700|Homemade+Apple|IM+Fell+DW+Pica+SC|Kaushan+Script|Londrina+Shadow|Montserrat+Subrayada|Oswald:700|Permanent+Marker|Quicksand|Roboto+Condensed:700|Teko|Vollkorn&display=swap", :rel => "stylesheet"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c", :rel => "stylesheet"}/
+
+  %body
+    = yield
