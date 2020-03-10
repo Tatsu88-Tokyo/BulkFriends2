@@ -1,22 +1,25 @@
 .header
-  .header__contents
-    .header__contents__search
-      .header__contents__search__friends
-        %span.fas.fa-list-ul.icon
-        =link_to "友達を探す", "#", class:"search__friends"
-      .header__contents__search__gyms
-        %span.fas.fa-tag.icon
-        =link_to "ジムを探す", "#",class:"search__gyms"
-      .header__contents__personal
-        .header__contents__personal__traings
-          %span.fas.fa-heart.login__icon
-          =link_to "トレーニング記録","#",class:"traings"
-        .header__contents__personal__messages
-          %span.fas.fa-bell.login__icon
-          =link_to "メッセージ", "#",class:"messages"
-        .header__contents__personal__mygym
-          %span.fas.fa-check.login__icon
-          =link_to "マイジム", "#",class:"mygym"
-        .header__contents__personal__mypage
-          %span.fas.fa-user-circle.login__icon
-          =link_to "マイページ", "#",class:"mypage"
+  .header__contents__top
+    .header__contents__title
+      =link_to "BulkFriends", "#", class:"title"
+  -# .header__contents__below  
+  -#   .header__contents__below__search
+  -#     .header__contents__below__search__friends
+  -#       %span.fas.fa-list-ul.icon
+  -#       =link_to "友達を探す", "#", class:"search__friends"
+  -#     .header__contents__below__search__gyms
+  -#       %span.fas.fa-tag.icon
+  -#       =link_to "ジムを探す", "#",class:"search__gyms"
+  -#   .header__contents__below__personal
+  -#     .header__contents__below__personal__traings
+  -#       %span.fas.fa-heart.login__icon
+  -#       =link_to "トレーニング記録","#",class:"traings"
+  -#     .header__contents__below__personal__messages
+  -#       %span.fas.fa-bell.login__icon
+  -#       =link_to "メッセージ", "#",class:"messages"
+  -#     .header__contents__below__personal__mygym
+  -#       %span.fas.fa-check.login__icon
+  -#       =link_to "マイジム", "#",class:"mygym"
+  -#     .header__contents__below__personal__mypage
+  -#       %span.fas.fa-user-circle.login__icon
+  -#       =link_to "マイページ", "#",class:"mypage"
