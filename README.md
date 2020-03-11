@@ -43,16 +43,15 @@
 |password|string|null: false|
 |avatar|text||
 |introduction|text||
+|mygym|integer||
 
 ### Association
 - has_many: tweets
 - has_many: messages
-- has_many: orders
-- has_many: ship_to-addresses
-- has_one: address
-- has_one : creditcards
+- has_many: friends
 
-## tweetsテーブル
+
+## messagesテーブル(未実装)
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
@@ -60,4 +59,13 @@
 
 ### Association
 - belongs_to : user
-- has_many: likes
+
+## friendsテーブル(未実装)
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|target_user_id|integer|null: false|
+|status|integer||
+
+### Association
+- belongs_to : user
