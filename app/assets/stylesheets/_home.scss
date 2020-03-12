@@ -32,6 +32,14 @@
     background-position: center 50%;
     background-size: cover;
     background-image: image-url("photo-1554284126-aa88f22d8b74.jpeg");
+    &_container{
+      background-color:$black;
+      width:75%;
+      height:350px;
+      margin:  0 auto; 
+      opacity:0.8;
+      font-family: "Noto Sans JP";
+    }
   }
 }
 
