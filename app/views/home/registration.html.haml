@@ -1,0 +1,18 @@
+.header
+  .header__contents__top
+    .header__contents__title
+      =link_to "BulkFriends",  root_path, class:"title"
+.registaration_index
+  .registaration_index_container
+    .registaration_index_container-main
+      %h2.registaration_index__container__title
+        新規会員登録
+      .registration_contents
+        =link_to new_user_registration_path, class: "btn-def--mail" do
+          %i.far.fa-envelope
+          %span<>
+          メールアドレスで登録する
+        -# =link_to user_twitter_omniauth_authorize_path, method: :post, class: "btn-def--twitter" do
+        -#   %i.fab.fa-twitter
+        -#   %span<>
+        -#   Twitterで登録する
