@@ -22,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     binding.pry
     if @user.save
       sign_in(:user, @user)
-      redirect_to "/home/top"
+      redirect_to root_path
     else
       render :new
     end
