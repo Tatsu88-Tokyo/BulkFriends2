@@ -7,19 +7,22 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    binding.pry
-    if params[:sns_auth] == 'true'
-      pass = Devise.friendly_token
-      params[:user][:password] = pass
-      params[:user][:password_confirmation] = pass
-    end
+
+    # if params[:sns_auth] == 'true'
+    #   pass = Devise.friendly_token
+    #   params[:user][:password] = pass
+    #   params[:user][:password_confirmation] = pass
+    # end
+
     # unless @user.valid?
     #   flash.now[:alert] = @user.errors.full_messages
     #   render :new and return
     # end
+    @user = User.new(sign_up_params)
+    binding.pry
     if @user.save
       sign_in(:user, @user)
-      redirect_to "home#get"
+      redirect_to "/home/top"
     else
       render :new
     end
