@@ -1,0 +1,26 @@
+=render "home/header_login"
+.mypage
+  .mypage_top
+    .mypage_top_container
+      .mypage_top_container_avator
+        .mypage_top_container_avator_main
+          =image_tag("henderson.jpeg")
+      .mypage_top_container_info
+        .mypage_top_container_info_name
+          .mypage_top_container_info_name_detail
+            %h1.plofile_name
+              =@user.nickname
+            .plofile_name_edit
+              =link_to "プロフィール編集", "#" ,class:"profile-edit"
+        .mypage_top_container_info_profile
+          イギリス（イングランド）・サンダーランド出身のサッカー選手。
+          %br/
+          プレミアリーグ・リヴァプールFCのCAP。イングランド代表。
+          %br/
+          ポジションはミッドフィールダー。
+  .mypage_main
+    .mypage_main_menus
+      .mypage_main_menus_traings
+      .mypage_main_menus_friends
+      .mypage_main_menus_messages
+      .mypage_main_menus_mygym

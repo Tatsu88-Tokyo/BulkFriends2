@@ -1,0 +1,84 @@
+.mypage{
+  &_top{
+    width:80%;
+    margin:60px auto;
+    &_container{
+      height:400px;
+      display:flex;
+      box-shadow:0px 9px 3px -3px rgba(0, 0, 0, 0.18);
+      &_avator{
+        width:30%;
+        padding:20px;
+        position:relative;
+        &_main{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateY(-50%) translateX(-50%);
+        }
+      }
+      &_info{
+        width:70%;
+        padding:20px;
+        &_name{
+          display:flex;
+          height:30%;
+          &_detail{
+            height:50%;
+            width:100%;
+          }
+        }
+        &_profile{
+          height:70%;
+        }
+      }
+    }
+  }
+  &_main{
+    &_menus{
+      display:flex;
+      &_trainings{
+
+      }
+      &_friends{
+
+      }
+      &_messages{
+
+      }
+      &_mygym{
+        
+      }
+    }
+
+  }
+}
+
+.plofile_name{
+  font-size:40px;
+  font-family: "Noto Sans JP";
+  font-weight:600;
+
+}
+
+.profile-edit{
+  background-color:$lightBlue;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  width:20%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $lightBlue;
+  line-height: 14px;
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
+  text-decoration: none;
+  font-family: "Noto Sans JP";
+  text-align:center;
+  &:hover{
+    background-color:$white;
+    color:$lightBlue;
+  }
+}
