@@ -1,7 +1,7 @@
 .mypage{
+  width:80%;
+  margin:60px auto;
   &_top{
-    width:80%;
-    margin:60px auto;
     &_container{
       height:400px;
       display:flex;
@@ -35,19 +35,38 @@
     }
   }
   &_main{
+    padding-top:20px;
     &_menus{
+      height:400px;
       display:flex;
+      flex-wrap: wrap;
       &_trainings{
-
+        @include mypage_background-image;
+        background-image: image-url("calendar.jpg");
+        &_details{
+          @include mypage_details;
+        }
       }
       &_friends{
-
+        @include mypage_background-image;
+        background-image: image-url("friends.jpg");
+        &_details{
+          @include mypage_details;
+        }
       }
       &_messages{
-
+        @include mypage_background-image;
+        background-image: image-url("messages.jpg");
+        &_details{
+          @include mypage_details;
+        }
       }
       &_mygym{
-        
+        @include mypage_background-image;
+        background-image: image-url("mygym.jpg");
+        &_details{
+          @include mypage_details;
+        }
       }
     }
 
@@ -81,4 +100,12 @@
     background-color:$white;
     color:$lightBlue;
   }
+}
+
+.menus_title{
+  font-size: 40px;
+  text-align: center;
+  color:$white;
+  font-weight:600;
+  text-shadow: 10px 10px 10px $black;
 }
