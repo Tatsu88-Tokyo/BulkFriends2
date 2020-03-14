@@ -1,10 +1,9 @@
-# class UserController < ApplicationController
-#   class UsersController < ApplicationController
-#     before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout]
+class UserController < ApplicationController
+  before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout]
 #     before_action :set_address, only: [:edit, :update]
   
-#     def show
-#     end
+def show
+end
   
 #     def edit
 #     end
@@ -32,28 +31,8 @@
 #     def ready
 #     end
   
-#     private
-#     def address_params
-#       params.require(:address).permit(:postal_code, :prefecture, :city, :address, :apartment)
-#     end
-  
-#     def set_user
-#       @user = User.find(params[:id])
-#     end
-  
-#     def set_address
-#       @address = Address.find(params[:id])
-#     end
-  
-#     def set_category
-#       @parents = Category.all.order("id ASC").limit(13)
-#     end
-#     def user_params
-#       params.require(:user).permit(
-#         :nickname,
-#         :introduction,
-#       )
-#     end
-#   end
-  
-# end
+  private
+    def set_user
+      @user = User.find(params[:id])
+    end
+end

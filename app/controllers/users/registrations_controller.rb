@@ -19,10 +19,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     #   render :new and return
     # end
     @user = User.new(sign_up_params)
-    binding.pry
     if @user.save
       sign_in(:user, @user)
-      redirect_to root_path
+      redirect_to user_path(@user.id)
     else
       render :new
     end

@@ -1,0 +1,111 @@
+.mypage{
+  width:80%;
+  margin:60px auto;
+  &_top{
+    &_container{
+      height:400px;
+      display:flex;
+      box-shadow:0px 9px 3px -3px rgba(0, 0, 0, 0.18);
+      &_avator{
+        width:30%;
+        padding:20px;
+        position:relative;
+        &_main{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateY(-50%) translateX(-50%);
+        }
+      }
+      &_info{
+        width:70%;
+        padding:20px;
+        &_name{
+          display:flex;
+          height:30%;
+          &_detail{
+            height:50%;
+            width:100%;
+          }
+        }
+        &_profile{
+          height:70%;
+        }
+      }
+    }
+  }
+  &_main{
+    padding-top:20px;
+    &_menus{
+      height:400px;
+      display:flex;
+      flex-wrap: wrap;
+      &_trainings{
+        @include mypage_background-image;
+        background-image: image-url("calendar.jpg");
+        &_details{
+          @include mypage_details;
+        }
+      }
+      &_friends{
+        @include mypage_background-image;
+        background-image: image-url("friends.jpg");
+        &_details{
+          @include mypage_details;
+        }
+      }
+      &_messages{
+        @include mypage_background-image;
+        background-image: image-url("messages.jpg");
+        &_details{
+          @include mypage_details;
+        }
+      }
+      &_mygym{
+        @include mypage_background-image;
+        background-image: image-url("mygym.jpg");
+        &_details{
+          @include mypage_details;
+        }
+      }
+    }
+
+  }
+}
+
+.plofile_name{
+  font-size:40px;
+  font-family: "Noto Sans JP";
+  font-weight:600;
+
+}
+
+.profile-edit{
+  background-color:$lightBlue;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  width:20%;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $lightBlue;
+  line-height: 14px;
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
+  text-decoration: none;
+  font-family: "Noto Sans JP";
+  text-align:center;
+  &:hover{
+    background-color:$white;
+    color:$lightBlue;
+  }
+}
+
+.menus_title{
+  font-size: 40px;
+  text-align: center;
+  color:$white;
+  font-weight:600;
+  text-shadow: 10px 10px 10px $black;
+}
