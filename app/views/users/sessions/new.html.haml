@@ -1,0 +1,22 @@
+.header
+  .header__contents__top
+    .header__contents__title
+      =link_to "BulkFriends", root_path, class:"title"
+
+.registaration_main
+  .registration_main_title
+  ログイン
+  .registration_main__container__form
+    -# .login-form-inner
+    -#   = link_to user_twitter_omniauth_authorize_path, method: :post, class: "btn-def--twitter" do
+    -#     %i.fab.fa-twitter
+    -#     %span<>
+    -#     Twitterでログイン               
+    .login-form-inner
+      = form_with model: @user, url:user_session_path, method: :post, local:true do |f|
+        .form-group
+          = f.email_field :email, {autofocus: true, autocomplete: "email", placeholder: "メールアドレス",class:'form-group__input'}
+        .form-group
+          = f.password_field :password,{autocomplete: "current-password",placeholder: "パスワード",class:'form-group__input',id:"password"}
+        .form-group
+          = f.submit 'ログイン', class: "btn-default btn-red"

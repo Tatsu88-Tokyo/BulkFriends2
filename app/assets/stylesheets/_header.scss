@@ -21,7 +21,6 @@
     }
     &__below{
       display: flex;
-      -webkit-box-pack: justify;
       justify-content: space-between;
       margin-top: 8px;
       &__registration{
@@ -36,6 +35,10 @@
           padding-right:10px;
           @include button;
         }
+      }
+      &__logout{
+        margin:0 0 0 auto;
+        padding:5px 10px 5px 0;
       }
     }
   }
@@ -57,7 +60,6 @@
   height: 12px;
   margin-right: 4px;
   color:rgb(134, 127, 127);
-
 }
 
 .title{
@@ -110,3 +112,22 @@
   }
 }
 
+.logout{
+  background-color:$navy;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $navy;
+  line-height: 14px;
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
+  text-decoration: none;
+  font-family: "M PLUS Rounded 1c";
+  &:hover{
+    background-color:$white;
+    color:$navy;
+  }
+}

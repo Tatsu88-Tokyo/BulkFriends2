@@ -8,8 +8,8 @@ end
 #     def edit
 #     end
   
-#     def logout
-#     end
+def logout
+end
   
 #     def update
 #       if @address.update(address_params)
