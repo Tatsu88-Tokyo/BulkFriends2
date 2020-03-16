@@ -1,10 +1,10 @@
 .header
   .header__contents__top
     .header__contents__title
-      =link_to "BulkFriends", root_path, class:"title"
+      =link_to "BulkFriends", user_path(@user.id), class:"title"
   .header__contents__below    
     .header__contents__below__logout
-      =link_to "ログアウト", "#" ,class:"logout"
+      =link_to "ログアウト", logout_user_path ,class:"logout"
   -# .header__contents__below  
   -#   .header__contents__below__search
   -#     .header__contents__below__search__friends

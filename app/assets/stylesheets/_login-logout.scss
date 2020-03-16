@@ -1,0 +1,47 @@
+.logout_index{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_container{
+    padding: 200px 0 100px;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    height: 500px;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-position: center 50%;
+    background-size: cover;
+    background-image: image-url("photo-1571902943202-507ec2618e8f.jpeg");
+    &-main{
+      background-color:$red;
+      width:500px;
+      height:100px;
+      margin:  0 auto; 
+      opacity:0.9;
+      cursor:pointer;
+    }
+  }
+}
+
+
+.logout_main{
+  max-width:350px;
+  text-align:center;
+  margin: 0 auto;
+  margin-top:30px;
+  &_title{
+    box-sizing: border-box;
+    text-align: center;
+    padding: 20px 30px;
+
+  }
+}
+
+.logout_title{
+  text-decoration: none;
+  font-weight: bold;
+  color:$white;
+  font-family: "Noto Sans JP";
+  font-size: 40px;
+}

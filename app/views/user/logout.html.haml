@@ -1,0 +1,11 @@
+.header
+  .header__contents__top
+    .header__contents__title
+      =link_to "BulkFriends", root_path, class:"title"
+.logout_index
+  .logout_index_container
+    .logout_index_container-main
+      %h2.logout_main_title
+        =link_to destroy_user_session_path, method: :delete, class:"logout_title" do
+          ログアウト
+
