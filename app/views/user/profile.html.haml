@@ -1,0 +1,35 @@
+=render "home/header_login"
+.profile
+  .profile__main
+    %h1.profile__main__title
+    プロフィール編集
+    .profile__main__contents
+      = form_with model: @user, url: profile_update_user_path ,method: :patch, local:true do |f|
+        .form-group
+          = f.label :ニックネーム
+          %span.form-group__require 必須
+          = f.text_field :nickname, class:'form-group__input'
+        .form-group
+          = f.label :メールアドレス
+          %span.form-group__require 必須
+          = f.email_field :email, {autofocus: true, autocomplete: "email",class:'form-group__input'}
+        .form-group
+          = f.label :パスワード
+          %span.form-group__require 必須
+          = f.password_field :password,{class:'form-group__input',id:"password"}
+          %p.form-group__info ※ 英字と数字の両方を含めて設定してください
+          .form-password-revelation-toggle
+            .checkbox-default
+              %input#reveal_password{type: "checkbox",class:"icon-check"}
+              %label{for: "reveal_password"} パスワードを表示する
+            .form-password-revelation-revealed-password-container
+              %span.form-password-revelation-revealed-password
+        .form-group
+          = f.label :プロフィール写真
+          = f.file_field :avatar
+        .form-group
+          = f.label :プロフィール
+          = f.text_area :introduction, class:'form-group__textarea'
+        .form-group
+          %p.form-group__text--center
+          = f.submit '変更する', class: "btn-default btn-red"
