@@ -27,6 +27,8 @@
         .form-group
           = f.label :プロフィール写真
           = f.file_field :avatar
+        -if @user.avatar.attached?
+          =@user.avatar.purge
         .form-group
           = f.label :プロフィール
           = f.text_area :introduction, class:'form-group__textarea'
