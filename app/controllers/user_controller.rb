@@ -3,6 +3,7 @@ class UserController < ApplicationController
 #     before_action :set_address, only: [:edit, :update]
   
 def show
+  @relationship = Relationship.new
 end
   
 def edit

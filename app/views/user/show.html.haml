@@ -14,25 +14,47 @@
           .mypage_top_container_info_name_detail
             %h1.plofile_name
               =@user.nickname
-            .plofile_name_edit
-              =link_to "プロフィール編集", profile_user_path ,class:"profile-edit"
+            -if current_user.id == @user.id
+              .plofile_name_edit
+                =link_to "プロフィール編集", profile_user_path ,class:"profile-edit"
+            - else
+              = form_with model: @relationship, remote: true do |f|
+                %div= hidden_field_tag :following_id, @user.id
+                -# = button_tag type: 'submit', class: 'btn btn-default' do
+                -# %i.far.fa-envelope
+                = f.submit "いいね", class: "btn-like"
         .mypage_top_container_info_profile
           = simple_format(@user.introduction)
   .mypage_main
-    .mypage_main_menus
-      .mypage_main_menus_trainings
-        .mypage_main_menus_trainings_details
-          %h1.menus_title 
-            Trainings
-      .mypage_main_menus_friends
-        .mypage_main_menus_friends_details
-          %h1.menus_title 
-            Friends
-      .mypage_main_menus_messages
-        .mypage_main_menus_messages_details
-          %h1.menus_title 
-            Messages
-      .mypage_main_menus_mygym
-        .mypage_main_menus_mygym_details
-          %h1.menus_title 
-            MyGYM
+    -if current_user.id == @user.id
+      .mypage_main_menus
+        .mypage_main_menus_trainings
+          .mypage_main_menus_trainings_details
+            %h1.menus_title 
+              Trainings
+        .mypage_main_menus_friends
+          .mypage_main_menus_friends_details
+            %h1.menus_title 
+              Friends
+        .mypage_main_menus_messages
+          .mypage_main_menus_messages_details
+            %h1.menus_title 
+              Messages
+        .mypage_main_menus_mygym
+          .mypage_main_menus_mygym_details
+            %h1.menus_title 
+              MyGYM
+    -else
+      .otherspage_main_menus
+        .otherspage_main_menus_trainings
+          .otherspage_main_menus_trainings_details
+            %h1.menus_title 
+              Trainings
+        .otherspage_main_menus_friends
+          .otherspage_main_menus_friends_details
+            %h1.menus_title 
+              Friends
+        .otherspage_main_menus_messages
+          .otherspage_main_menus_messages_details
+            %h1.menus_title 
+              Messages
