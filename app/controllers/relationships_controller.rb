@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
   def create
-    current_user.active_relationships.create(create_params)
+    current_user.following_relationships.create(create_params)
   end
 
   private

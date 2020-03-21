@@ -141,6 +141,16 @@
 
 }
 
-.btn-like{
-  
+.btn-likes{
+  display: block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color:$black;
+}
+
+.btn-liked{
+  display: block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color:$red;
 }
