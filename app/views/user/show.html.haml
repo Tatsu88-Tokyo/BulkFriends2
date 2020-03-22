@@ -18,15 +18,15 @@
               .plofile_name_edit
                 =link_to "プロフィール編集", profile_user_path ,class:"profile-edit"
             - else
-              #follow_form
-                - if current_user.following?(@user)
-                  .btn-liked
+              - if current_user.following?(@user)
+                = form_with model: @relationship,url: relationship_path, method: :delete, remote: true  do |f|
+                  = button_tag type: 'submit', class: 'btn-liked',id: "unfollow_form" do
                     %i.fas.fa-heart.fa-3x
-                - else
-                  = form_with model: @relationship, remote: true  do |f|
-                    %div= hidden_field_tag :following_id, @user.id
-                    = button_tag type: 'submit', class: 'btn-likes' do
-                      %i.far.fa-heart.fa-3x
+              - else
+                = form_with model: @relationship, remote: true  do |f|
+                  %div= hidden_field_tag :following_id, @user.id
+                  = button_tag type: 'submit', class: 'btn-likes',id: "follow_form" do
+                    %i.far.fa-heart.fa-3x
         .mypage_top_container_info_profile
           = simple_format(@user.introduction)
   .mypage_main
