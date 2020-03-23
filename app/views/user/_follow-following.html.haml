@@ -1,0 +1,9 @@
+= link_to user_path(@user.id), class: "" do
+  %li.friends__list
+    .friends__avatar
+      -if @user.avatar.attached?
+        =image_tag @user.avatar, class:"avatar"
+      -else
+        =image_tag ("noimage.png"),class:"avatar"
+    .friends__name
+        = @user.name

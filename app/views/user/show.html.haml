@@ -8,7 +8,6 @@
             =image_tag @user.avatar, class:"avatar"
           -else
             =image_tag ("noimage.png"),class:"avatar"
-
       .mypage_top_container_info
         .mypage_top_container_info_name
           .mypage_top_container_info_name_detail
@@ -36,7 +35,7 @@
           .mypage_main_menus_trainings_details
             %h1.menus_title
               Trainings
-        .mypage_main_menus_friends
+        =link_to friends_user_path,class:"mypage_main_menus_friends" do
           .mypage_main_menus_friends_details
             %h1.menus_title
               Friends

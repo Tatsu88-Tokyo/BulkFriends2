@@ -13,6 +13,10 @@ end
 def logout
 end
 
+def friends
+  @friends = current_user.matchers
+end
+
 
 def profile_update
   if @user.update(user_params)

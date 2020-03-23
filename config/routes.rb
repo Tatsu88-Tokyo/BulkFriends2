@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       get 'profile'
       patch 'profile_update'
       get 'logout'
-      get :following, :followers, :users_tweets
+      get 'friends'
+      get :following, :followers
     end
   end
   resources :relationships, only: [:create, :destroy]
