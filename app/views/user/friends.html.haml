@@ -7,14 +7,43 @@
         %h1.serch__title 検索
       .friends__main__contents__lists
         %ul.tab
-          %li.select フレンドリスト
-          %li いいねした
-          %li いいねされた
+          %li.select FRIENDS
+          %li LIKE
+          %li LIKED
         %ul.content
-          %li フレンドリストをここに表示
-          %li.hide いいねした人表示
-          %li.hide いいねされた人表示
-
-          -# %ul.pickup-section__main--products
-          -#   - @friends.each do |friend|
-          -#     = render "follow-followings"
+          %li.friends-list
+            -@friends.each do |friend|
+              .friend__line
+                .line-name
+                  =friend.nickname
+                .line-avatar
+                  -if friend.avatar.attached?
+                    =image_tag (friend.avatar),class:"line-image"
+                  -else
+                    =image_tag ("noimage.png"),class:"avatar"
+                .line-introduction
+                  =friend.introduction
+          %li.hide
+            -@user.followings.each do |following|
+              .friend__line
+                .line-name
+                  =following.nickname
+                .line-avatar
+                  -if following.avatar.attached?
+                    =image_tag (following.avatar),class:"line-image"
+                  -else
+                    =image_tag ("noimage.png"),class:"avatar"
+                .line-introduction
+                  =following.introduction
+          %li.hide
+            -@user.followers.each do |follower|
+              .friend__line
+                .line-name
+                  =follower.nickname
+                .line-avatar
+                  -if follower.avatar.attached?
+                    =image_tag (follower.avatar),class:"line-image"
+                  -else
+                    =image_tag ("noimage.png"),class:"avatar"
+                .line-introduction
+                  =follower.introduction
