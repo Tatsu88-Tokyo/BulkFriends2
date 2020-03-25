@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       patch 'profile_update'
       get 'logout'
       get 'friends'
+      get 'search'
       get :following, :followers
     end
   end

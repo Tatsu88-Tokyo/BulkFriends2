@@ -13,6 +13,13 @@
         width:60%;
         margin:0 auto;
         height:20%;
+        &__title{
+          font-size:20px;
+          background-color: $navy;
+          border-radius:10px;
+          width:200px;
+          margin:0 auto;
+        }
       }
       &__lists{
         width:100%;
@@ -24,15 +31,15 @@
 }
 
 
-.serch__title{
-  font-size:20px;
-  background-color: $navy;
+.search__title{
   color:$white;
-  border-radius:10px;
+  text-decoration: none;
+  width:200px;
+  display: block;
 }
 
 .tab{
-  // overflow:hidden;
+  overflow:hidden;
   width: 100%;
   height: 50px;
   margin: 0 auto;
@@ -75,6 +82,7 @@
   height:300px;
   border-bottom: thin solid $gray;
   position:relative;
+  overflow:hidden;
 }
 
 .line-name{

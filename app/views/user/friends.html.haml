@@ -4,7 +4,8 @@
     Friends
     .friends__main__contents
       .friends__main__contents__search
-        %h1.serch__title 検索
+        .friends__main__contents__search__title
+          =link_to "検索",search_user_path, class:"search__title"
       .friends__main__contents__lists
         %ul.tab
           %li.select FRIENDS
