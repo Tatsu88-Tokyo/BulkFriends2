@@ -31,4 +31,12 @@ class User < ApplicationRecord
     followings & followers
   end
 
+  def self.search(nickname)
+    if nickname
+      User.where(['nickname LIKE ?', "%#{nickname}%"])
+    else
+      User.all
+    end
+  end
+
 end

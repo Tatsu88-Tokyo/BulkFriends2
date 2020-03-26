@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout,:friends]
+  before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout,:friends,:search]
 #     before_action :set_address, only: [:edit, :update]
 
 def show
@@ -26,6 +26,10 @@ def profile_update
   end
 end
 
+def search
+  @users = User.search(params[:search])
+  @friends = current_user.matchers
+end
 
 private
 

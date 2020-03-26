@@ -5,7 +5,9 @@
     .friends__main__contents
       .friends__main__contents__search
         .friends__main__contents__search__title
-          =link_to "検索",search_user_path, class:"search__title"
+          =form_with url: search_user_path, method: :get, id: "form1", local: true do |f|
+            =f.text_field :search, {placeholder: "キーワードを入力",id: "sbox"}
+            =f.submit "検索", id: "sbtn"
       .friends__main__contents__lists
         %ul.tab
           %li.select FRIENDS
@@ -17,6 +19,7 @@
               .friend__line
                 .line-name
                   =friend.nickname
+                  =link_to '詳細', user_path(friend),class:"detail"
                 .line-avatar
                   -if friend.avatar.attached?
                     =image_tag (friend.avatar),class:"line-image"
@@ -29,6 +32,7 @@
               .friend__line
                 .line-name
                   =following.nickname
+                  =link_to '詳細', user_path(following),class:"detail"
                 .line-avatar
                   -if following.avatar.attached?
                     =image_tag (following.avatar),class:"line-image"
@@ -41,6 +45,7 @@
               .friend__line
                 .line-name
                   =follower.nickname
+                  =link_to '詳細', user_path(follower),class:"detail"
                 .line-avatar
                   -if follower.avatar.attached?
                     =image_tag (follower.avatar),class:"line-image"
