@@ -1,16 +1,22 @@
 class UserController < ApplicationController
-  before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout]
+  before_action :authenticate_user!
+  before_action :set_user, only: [:show, :edit,:profile,:profile_update,:logout,:friends,:search]
 #     before_action :set_address, only: [:edit, :update]
-  
+
 def show
+  @relationship = Relationship.new
 end
-  
+
 def edit
 end
-  
+
 def logout
 end
-  
+
+def friends
+  @friends = current_user.matchers
+end
+
 
 def profile_update
   if @user.update(user_params)
@@ -20,8 +26,11 @@ def profile_update
   end
 end
 
+def search
+  @users = User.search(params[:search])
+  @friends = current_user.matchers
+end
 
-  
 private
 
 def set_user
@@ -30,8 +39,8 @@ end
 
 def user_params
   params.require(:user).permit(
-    :nickname, 
-    :email, 
+    :nickname,
+    :email,
     :password,
     :avatar,
     :introduction,

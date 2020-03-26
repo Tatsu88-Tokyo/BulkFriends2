@@ -1,0 +1,23 @@
+=render "home/header_login"
+.search
+  .search__main
+    Search Result
+    .search__main__form
+      =form_with url: search_user_path, method: :get, id: "form1", local: true do |f|
+        =f.text_field :search, {placeholder: "キーワードを入力",id: "sbox"}
+        =f.submit "検索", id: "sbtn"
+    .search__main__result
+      %ul.content
+        %li.friends-list
+          -@users.each do |user|
+            .friend__line
+              .line-name
+                =user.nickname
+                =link_to '詳細', user_path(user),class:"detail"
+              .line-avatar
+                -if user.avatar.attached?
+                  =image_tag (user.avatar),class:"line-image"
+                -else
+                  =image_tag ("noimage.png"),class:"avatar"
+              .line-introduction
+                =user.introduction

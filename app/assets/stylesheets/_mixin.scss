@@ -34,6 +34,28 @@
   }
 }
 
+@mixin otherspage_background-image{
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  flex:auto;
+  width:33%;
+  background-size:100% auto;
+  box-shadow:0px 0px 30px rgba(0, 0, 0, 0.18);
+  box-shadow:0px 0px 30px rgba(0, 0, 0, 0.18) inset;
+  &:hover {
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    transform: translateY(-10px);
+    transition-duration: 0.5s;
+    // 明るくするときは以下の記述
+    // opacity: 0.6;
+    // transition-duration: 0.3s;
+    // 回転するときは以下の記述
+    // transform: rotateY( 360deg );
+    // transition-duration: 1s;
+  }
+}
+
 @mixin mypage_details{
   font-family: 'Teko', sans-serif;
   position:absolute;
@@ -42,7 +64,7 @@
   background-color:$black;
   width:75%;
   height:60px;
-  margin:  0 auto; 
+  margin:  0 auto;
   opacity:0.8;
   padding-top:10px;
 }

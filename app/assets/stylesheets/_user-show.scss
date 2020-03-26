@@ -109,3 +109,48 @@
   font-weight:600;
   text-shadow: 10px 10px 10px $black;
 }
+
+.otherspage_main{
+  padding-top:20px;
+  &_menus{
+    height:200px;
+    display:flex;
+    flex-wrap: wrap;
+    &_trainings{
+      @include otherspage_background-image;
+      background-image: image-url("calendar.jpg");
+      &_details{
+        @include mypage_details;
+      }
+    }
+    &_friends{
+      @include otherspage_background-image;
+      background-image: image-url("friends.jpg");
+      &_details{
+        @include mypage_details;
+      }
+    }
+    &_messages{
+      @include otherspage_background-image;
+      background-image: image-url("messages.jpg");
+      &_details{
+        @include mypage_details;
+      }
+    }
+  }
+
+}
+
+.btn-likes{
+  display: block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color:$black;
+}
+
+.btn-liked{
+  display: block;
+  border: 1px solid transparent;
+  cursor: pointer;
+  color:$red;
+}
