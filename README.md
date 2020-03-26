@@ -49,6 +49,11 @@
 - has_many: tweets
 - has_many: messages
 - has_many: friends
+- has_one_attached :avatar
+- has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+- has_many :followings, through: :following_relationships
+- has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
+- has_many :followers, through: :follower_relationships
 
 
 ## messagesテーブル(未実装)
@@ -60,12 +65,33 @@
 ### Association
 - belongs_to : user
 
-## friendsテーブル(未実装)
+## Relationshipsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user|references|foreign_key: true|
-|target_user_id|integer|null: false|
-|status|integer||
+|follower_id|integer|foreign_key: true|
+|following_id|integer|null: false|
 
 ### Association
-- belongs_to : user
+- belongs_to :follower, class_name: "User"
+- belongs_to :following, class_name: "User"
+
+## Active_storage_blobsテーブル(アバター)
+|Column|Type|Options|
+|------|----|-------|
+|key|string|null: false|
+|filename|string|null: false|
+|content_type|string||
+|metadata|text||
+|byte_size|bigint|null: false|
+|checksum|string|null: false|
+
+### Association
+
+## Active_storage_attachmentsテーブル(アバター)
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|record|references| null: false, polymorphic: true, index: false|
+|blob|references|null: false|
+
+### Association
