@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get 'friends'
       get 'search'
       get :following, :followers
+        resources :messages, only: [:index, :create]
     end
   end
   resources :relationships, only: [:create, :destroy]

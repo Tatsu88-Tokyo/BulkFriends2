@@ -7,12 +7,12 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 7 }, format: { with: /(?=.*\d+.*)(?=.*[a-zA-Z]+.*)./ }
   validates :introduction, length: { maximum: 290 }
 
-  has_many :messages
   has_one_attached :avatar
   has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
+  has_many :messages
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
