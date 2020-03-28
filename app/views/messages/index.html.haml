@@ -1,0 +1,27 @@
+=render "home/header_login"
+.messages
+  .messages__side
+    .messages__side__header
+      Messages
+    .messages__side__contents
+      %ul.message-friends
+        %li.message-friends-list
+          -@friends.each do |friend|
+            .message-friend__line
+              .line-message-name
+                = link_to messages_path(friend) do
+                  =friend.nickname
+                  =link_to '詳細', user_path(friend),class:"detail"
+  .messages__main
+    .messages__main__header
+      =@user.nickname
+    .messages__main__contents
+    .messages__main__footer
+      .messages__main__footer__form
+        = form_with model: @message, local: true do |f|
+          = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+          .form__mask
+            = f.label :image, class: 'form__mask__image' do
+              %i.fas.fa-image.fa-2x
+              = f.file_field :image, class: 'hidden'
+          = f.submit 'Send', id: "msgbtn"
