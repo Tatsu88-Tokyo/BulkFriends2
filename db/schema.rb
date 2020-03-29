@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 2020_03_27_144325) do
     t.string "content"
     t.string "image"
     t.bigint "user_id"
+    t.bigint "receive_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receive_user_id"], name: "index_messages_on_receive_user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -69,4 +71,5 @@ ActiveRecord::Schema.define(version: 2020_03_27_144325) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "messages", "users"
+  add_foreign_key "messages", "users", column: "receive_user_id"
 end

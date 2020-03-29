@@ -16,6 +16,7 @@
     .messages__main__header
       =@user.nickname
     .messages__main__contents
+      =render @messages
     .messages__main__footer
       .messages__main__footer__form
         = form_with model: @message, local: true do |f|
