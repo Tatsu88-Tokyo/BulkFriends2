@@ -18,11 +18,11 @@
                 =link_to "プロフィール編集", profile_user_path ,class:"profile-edit"
             - else
               - if current_user.following?(@user)
-                = form_with model: @relationship,url: relationship_path, method: :delete, remote: true  do |f|
+                = form_with model: @relationship,url: relationship_path, method: :delete, local: true  do |f|
                   = button_tag type: 'submit', class: 'btn-liked',id: "unfollow_form" do
                     %i.fas.fa-heart.fa-3x
               - else
-                = form_with model: @relationship, remote: true  do |f|
+                = form_with model: @relationship, local: true  do |f|
                   %div= hidden_field_tag :following_id, @user.id
                   = button_tag type: 'submit', class: 'btn-likes',id: "follow_form" do
                     %i.far.fa-heart.fa-3x
