@@ -18,11 +18,11 @@
                 =link_to "プロフィール編集", profile_user_path ,class:"profile-edit"
             - else
               - if current_user.following?(@user)
-                = form_with model: @relationship,url: relationship_path, method: :delete, local: true  do |f|
+                = form_with model: @relationship,url: relationship_path, method: :delete  do |f|
                   = button_tag type: 'submit', class: 'btn-liked',id: "unfollow_form" do
                     %i.fas.fa-heart.fa-3x
               - else
-                = form_with model: @relationship, local: true  do |f|
+                = form_with model: @relationship do |f|
                   %div= hidden_field_tag :following_id, @user.id
                   = button_tag type: 'submit', class: 'btn-likes',id: "follow_form" do
                     %i.far.fa-heart.fa-3x
@@ -35,7 +35,7 @@
           .mypage_main_menus_trainings_details
             %h1.menus_title
               Trainings
-        =link_to friends_user_path,class:"mypage_main_menus_friends" do
+        =link_to friends_user_path,class:"mypage_main_menus_friends","data-turbolinks": false do
           .mypage_main_menus_friends_details
             %h1.menus_title
               Friends
