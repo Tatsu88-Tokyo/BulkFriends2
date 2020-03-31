@@ -16,13 +16,14 @@
     .messages__main__header
       =@user.nickname
     .messages__main__contents
-      =render @messages
+      .contents
+        =render @messages
     .messages__main__footer
       .messages__main__footer__form
-        = form_with model: @message,local:true, id: "new_message" do |f|
+        = form_with model: @message,id: "new_message" do |f|
           = f.text_field :content, class: 'form__message', placeholder: 'type a message'
           .form__mask
             = f.label :image, class: 'form__mask__image' do
               %i.fas.fa-image.fa-2x
               = f.file_field :image, class: 'hidden'
-          = f.submit 'Send', id: "msgbtn"
+          = f.submit 'Send', id: "msgbtn", class: 'form__submit'

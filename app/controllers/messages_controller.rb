@@ -13,11 +13,10 @@ def create
   @message = current_user.messages.new(message_params)
   @message.receive_user_id = @user.id
   if @message.save
-    # respond_to do |format|
-    #   format.html{ redirect_to messages_path(@user)}
-    #   format.json
-    # end
-    redirect_to messages_path(@user)
+    respond_to do |format|
+      # format.html{ redirect_to messages_path(@user)}
+      format.json
+    end
   else
     @messages = @user.messages.includes(:user)
     flash.now[:alert] = 'メッセージを入力してください。'
