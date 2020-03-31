@@ -1,3 +1,11 @@
+$(function(){
+});
+
+
+
+
+
+
 // $(function(){
 //   let reloadMessages = function(){
 //     if (location.href.match(/\/user\/\d+\/messages/)){
