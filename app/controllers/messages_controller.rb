@@ -14,7 +14,7 @@ def create
   @message.receive_user_id = @user.id
   if @message.save
     respond_to do |format|
-      format.html{ redirect_to messages_path(@user)}
+      # format.html{ redirect_to messages_path(@user)}
       format.json
     end
   else

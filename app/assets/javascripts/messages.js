@@ -1,32 +1,32 @@
 $(function(){
-  // let reloadMessages = function(){
-  //   if (location.href.match(/\/user\/\d+\/messages/)){
-  //     let last_message_id = $('.message:last').data('message-id');
-  //     console.log(last_message_id);
-  //   $.ajax({
-  //     url:'api/messages',
-  //     type:'get',
-  //     dataType:'json',
-  //     data: {id: last_message_id}
-  //   })
-  //   .done(function (messages){
-  //     let insertHTML = '';
-  //     messages.forEach(function (message){
-  //     insertHTML = buildHTML(message);
-  //     $('.contents').append(insertHTML);
-  //     })
-  //     $('.messages__main__contents').animate({scrollTop: $('.contents')[0].scrollHeight});
-  //   })
-  //   .fail(function(){
-  //     alert('自動更新,失敗')
-  //   });
-  //   }
-  // };
+  let reloadMessages = function(){
+    if (location.href.match(/\/user\/\d+\/messages/)){
+      let last_message_id = $('.message:last').data('message-id');
+      console.log(last_message_id);
+    $.ajax({
+      url:'api/messages',
+      type:'get',
+      dataType:'json',
+      data: {id: last_message_id}
+    })
+    .done(function (messages){
+      let insertHTML = '';
+      messages.forEach(function (message){
+      insertHTML = buildHTML(message);
+      $('.contents').append(insertHTML);
+      })
+      $('.messages__main__contents').animate({scrollTop: $('.contents')[0].scrollHeight});
+    })
+    .fail(function(){
+      alert('自動更新,失敗')
+    });
+    }
+  };
 
-  // setInterval(reloadMessages, 3000);
-//   setTimeout(function () {
-//     location.reload();
-// 　}, 30000);
+setInterval(reloadMessages, 3000);
+  setTimeout(function () {
+    location.reload();
+　}, 30000);
 
   function buildHTML(message){
     let image = message.image ? `<img class="lower-message__image" src=${message.image}>` : ``
