@@ -24,9 +24,9 @@ $(function(){
   };
 
 setInterval(reloadMessages, 3000);
-  setTimeout(function () {
+setTimeout(function () {
     location.reload();
-　}, 30000);
+}, 30000);
 
   function buildHTML(message){
     let image = message.image ? `<img class="lower-message__image" src=${message.image}>` : ``
