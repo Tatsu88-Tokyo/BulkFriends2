@@ -22,6 +22,9 @@ class User < ApplicationRecord
   has_many :reverses_of_message, class_name: 'Message', foreign_key: 'receive_user_id'
   has_many :received_messages, through: :reverses_of_message, source: :user
 
+  #トレーニングメモ機能
+  has_many :trainings
+
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end

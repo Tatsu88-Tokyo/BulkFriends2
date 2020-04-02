@@ -75,3 +75,4 @@ gem 'devise'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem "simple_calendar", "~> 2.0"

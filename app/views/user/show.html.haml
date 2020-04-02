@@ -31,7 +31,7 @@
   .mypage_main
     -if current_user.id == @user.id
       .mypage_main_menus
-        .mypage_main_menus_trainings
+        =link_to trainings_path,class:"mypage_main_menus_trainings","data-turbolinks": false do
           .mypage_main_menus_trainings_details
             %h1.menus_title
               Trainings
