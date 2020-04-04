@@ -1,0 +1,15 @@
+=render "home/header_login"
+.training-memo__main
+  .training-memo__main__title トレーニングメモ登録
+  .training-memo__main__form
+  = form_with model: @training, url: trainings_path,local:true do |f|
+    .form-group
+      = f.label :タイトル
+      %span.form-group__require 必須
+      = f.text_field :title,class:'form-group__input'
+    .form-group
+      = f.label :トレーニング内容
+      = f.text_area :content, class:'form-group__textarea'
+    .form-group
+      %p.form-group__text--center
+      = f.submit '登録', class: "btn-default btn-red", url: trainings_path ,method: :post

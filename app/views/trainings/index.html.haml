@@ -1,2 +1,8 @@
-%h1 Trainings#index
-%p Find me in app/views/trainings/index.html.haml
+=render "home/header_login"
+.trainings
+  = month_calendar events: @trainings do |date,trainings|
+    =link_to training_path,"data-turbolinks": false do
+      = date.day
+      - trainings.each do |training|
+        %div
+          =training.title
