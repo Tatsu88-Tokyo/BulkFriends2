@@ -1,8 +1,7 @@
 =render "home/header_login"
 .trainings
+  =link_to "記録する", new_training_path ,class:"training-edit"
   = month_calendar events: @trainings do |date,trainings|
-    =link_to training_path,"data-turbolinks": false do
-      = date.day
-      - trainings.each do |training|
-        %div
-          =training.title
+    = date.day
+    - trainings.each do |training|
+      =link_to "#{training.title}",training_path

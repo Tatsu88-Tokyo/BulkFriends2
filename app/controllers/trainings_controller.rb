@@ -1,20 +1,39 @@
 class TrainingsController < ApplicationController
+  before_action :set_user
   def index
-    @trainings = Training.all
+    @trainings = current_user.trainings
   end
 
   def show
-    @trainings = Training.all
+    @training = current_user.trainings.find(params[:id])
+  end
+
+  def new
+    @trainings = current_user.trainings
   end
 
   def create
+    @training = current_user.trainings.new(training_memo)
+    if @training.save
+      redirect_to trainings_path(@user.id)
+    else
+      redirect_to new_training_path
+    end
   end
 
   def destroy
-    @trainings = Training.all
+    @trainings = current_user.trainings.find(params[:id])
+    @trainings.destroy
+    redirect_to trainings_path(@user.id)
   end
+
+
   private
-  def traing_memo
-    params.require(:traing).permit(:title, :content, :start_time)
+  def training_memo
+    params.permit(:start_time,:title, :content,:user_id)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
