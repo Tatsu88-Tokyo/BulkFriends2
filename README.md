@@ -47,23 +47,29 @@
 
 ### Association
 - has_many: tweets
-- has_many: messages
 - has_many: friends
 - has_one_attached :avatar
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
 - has_many :followings, through: :following_relationships
 - has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
 - has_many :followers, through: :follower_relationships
+- has_many :messages
+- has_many :sent_messages, through: :messages, source: :receive_user
+- has_many :reverses_of_message, class_name: 'Message', foreign_key: 'receive_user_id'
+- has_many :received_messages, through: :reverses_of_message, source: :user
+- has_many :trainings
 
-
-## messagesテーブル(未実装)
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|content|text|null: false|
+|content|string|null: false|
 |user|references|foreign_key: true|
+|image|string||
+|receive_user|references|foreign_key: {to_table: :users}|
 
 ### Association
 - belongs_to : user
+- belongs_to :receive_user
 
 ## Relationshipsテーブル
 |Column|Type|Options|
@@ -95,3 +101,14 @@
 |blob|references|null: false|
 
 ### Association
+
+## tainingsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string||
+|content|text||
+|start_time|date||
+|user|references|foreign_key: true|
+
+### Association
+- belongs_to : user
