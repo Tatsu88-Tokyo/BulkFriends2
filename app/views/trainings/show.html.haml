@@ -4,6 +4,11 @@
   %ul.content
     %li.trainings-detail
       =@training.start_time
-      =@training.title
-      =@training.content
+      =link_to '編集', edit_training_path(@training.id),class:"detail"
       =link_to '削除', training_path,method: :delete,class:"detail"
+      %br/
+      =@training.title
+      %br/
+      -# =@training.content
+      = simple_format(@training.content)
+      %br/

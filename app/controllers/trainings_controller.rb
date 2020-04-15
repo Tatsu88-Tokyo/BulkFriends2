@@ -12,6 +12,16 @@ class TrainingsController < ApplicationController
     @trainings = current_user.trainings
   end
 
+  def edit
+    @training = current_user.trainings.find(params[:id])
+  end
+
+  def update
+    @training = current_user.trainings.find(params[:id])
+    @training.update(update_params)
+    redirect_to trainings_path(@user.id)
+  end
+
   def create
     @training = current_user.trainings.new(training_memo)
     if @training.save
@@ -35,5 +45,9 @@ class TrainingsController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def update_params
+    params.require(:training).permit(:start_time,:title, :content,:user_id)
   end
 end
