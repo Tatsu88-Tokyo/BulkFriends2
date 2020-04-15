@@ -1,0 +1,43 @@
+.trainings{
+  width:80%;
+  height:100%;
+  margin:120px auto;
+}
+
+.training-memo__main{
+  max-width:350px;
+  text-align:center;
+  margin:120px auto;
+  &__title{
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &__form{
+    max-width: 343px;
+    margin: 0 auto;
+  }
+}
+
+.training-edit{
+  background-color:$blue;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  width:100px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $blue;
+  line-height: 14px;
+  border-radius: 4px;
+  padding: 8px 10px;
+  transition: all 0.3s ease-out 0s;
+  text-decoration: none;
+  font-family: "Noto Sans JP";
+  text-align:center;
+  &:hover{
+    background-color:$white;
+    color:$blue;
+  }
+}

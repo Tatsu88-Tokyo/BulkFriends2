@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'trainings/index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
       get 'friends'
       get 'search'
       get :following, :followers
+        resources :trainings, only: [:index, :create,:show,:destroy,:new,:edit,:update]
         resources :messages, only: [:index, :create]
         namespace :api do
           resources :messages, only: :index, defaults: { format: 'json' }
