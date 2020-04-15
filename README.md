@@ -28,6 +28,7 @@
  - gem 'font-awesome-sass'
  - gem 'haml-rails'
  - gem 'devise'
+ - gem 'simple_calendar'
 
 # サイトURL（Basic認証キー）
 
@@ -91,8 +92,6 @@
 |byte_size|bigint|null: false|
 |checksum|string|null: false|
 
-### Association
-
 ## Active_storage_attachmentsテーブル(アバター)
 |Column|Type|Options|
 |------|----|-------|
@@ -100,7 +99,6 @@
 |record|references| null: false, polymorphic: true, index: false|
 |blob|references|null: false|
 
-### Association
 
 ## tainingsテーブル
 |Column|Type|Options|
