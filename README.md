@@ -105,9 +105,9 @@
 ## tainingsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|title|string||
+|title|string|null: false|
 |content|text||
-|start_time|date||
+|start_time|date|null: false|
 |user|references|foreign_key: true|
 
 ### Association
