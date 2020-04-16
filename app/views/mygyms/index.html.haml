@@ -1,0 +1,10 @@
+=render "home/header_login"
+.trainings
+  .registration_main__container__form
+  = form_with model: @mygym, url: mygym_path,local:true do |f|
+    .form-group
+      = f.label :MyGym登録
+      = f.select :gym, Mygym.gyms.keys, {}, {class: 'form-group__input'}
+    .form-group
+      %p.form-group__text--center
+      = f.submit '登録', class: "btn-default btn-red", url: mygym_path

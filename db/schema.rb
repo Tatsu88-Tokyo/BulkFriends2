@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_02_153017) do
+ActiveRecord::Schema.define(version: 2020_04_16_131850) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -42,6 +42,15 @@ ActiveRecord::Schema.define(version: 2020_04_02_153017) do
     t.datetime "updated_at", null: false
     t.index ["receive_user_id"], name: "index_messages_on_receive_user_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "mygyms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "gym", null: false
+    t.string "tweet"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_mygyms_on_user_id"
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,5 +91,6 @@ ActiveRecord::Schema.define(version: 2020_04_02_153017) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "messages", "users"
   add_foreign_key "messages", "users", column: "receive_user_id"
+  add_foreign_key "mygyms", "users"
   add_foreign_key "trainings", "users"
 end

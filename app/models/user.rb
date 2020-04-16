@@ -25,6 +25,9 @@ class User < ApplicationRecord
   #トレーニングメモ機能
   has_many :trainings
 
+  #Mygym機能
+  has_one :mygym
+
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end
