@@ -10,7 +10,24 @@
     align-items: center;
   }
   &__main{
-
+    &__contents{
+      &__detail{
+      border-width: 0.5px;
+      border-style: solid;
+      border-color:$gray;
+      display:flex;
+        &__side{
+          &__avatar{
+          }
+        }
+        &__main{
+          &__nickname{
+          }
+          &__content{
+          }
+        }
+      }
+    }
   }
 }
 
@@ -59,4 +76,16 @@
     background-color:$white;
     color:$red;
   }
+}
+
+.image-circle{
+  border-radius: 50%;
+  width:  80px;
+  height: 80px;
+}
+
+.avatar-circle{
+  border-radius: 50%;
+  width:  80px;
+  height: 80px;
 }

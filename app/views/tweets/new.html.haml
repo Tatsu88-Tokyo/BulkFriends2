@@ -1,0 +1,12 @@
+=render "home/header_login"
+.training-memo__main
+  .training-memo__main__title つぶやき投稿
+  .training-memo__main__form
+  = form_with model: @tweet, url: tweets_path,method: :post,local:true do |f|
+    .form-group
+      = f.label :"トレーニングやジムのことをつぶやこう!"
+      = f.label :"*文字数制限:２９０文字"
+      = f.text_area :content, class:'form-group__textarea'
+    .form-group
+      %p.form-group__text--center
+      = f.submit 'つぶやく', class: "btn-default btn-red"
