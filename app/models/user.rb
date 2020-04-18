@@ -17,16 +17,17 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   #メッセージ機能
-  has_many :messages
+  has_many :messages, dependent: :destroy
   has_many :sent_messages, through: :messages, source: :receive_user
   has_many :reverses_of_message, class_name: 'Message', foreign_key: 'receive_user_id'
   has_many :received_messages, through: :reverses_of_message, source: :user
 
   #トレーニングメモ機能
-  has_many :trainings
+  has_many :trainings, dependent: :destroy
 
   #Mygym機能
-  has_one :mygym
+  has_one :mygym, dependent: :destroy
+  has_many :tweets, dependent: :destroy
 
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)

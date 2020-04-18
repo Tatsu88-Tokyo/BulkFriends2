@@ -14,8 +14,9 @@ Rails.application.routes.draw do
       get 'friends'
       get 'search'
       get :following, :followers
-        resources :trainings, only: [:index, :create,:show,:destroy,:new,:edit,:update]
-        resources :mygyms, only: [:index, :create,:show,:destroy,:new,:edit,:update]
+        resources :trainings
+        resources :tweets
+        resources :mygyms, only: [:index, :create,:destroy,:edit,:update]
         resources :messages, only: [:index, :create]
         namespace :api do
           resources :messages, only: :index, defaults: { format: 'json' }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_16_131850) do
+ActiveRecord::Schema.define(version: 2020_04_17_134751) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,8 +45,7 @@ ActiveRecord::Schema.define(version: 2020_04_16_131850) do
   end
 
   create_table "mygyms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "gym", null: false
-    t.string "tweet"
+    t.integer "gym", default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -73,12 +72,19 @@ ActiveRecord::Schema.define(version: 2020_04_16_131850) do
     t.index ["user_id"], name: "index_trainings_on_user_id"
   end
 
+  create_table "tweets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tweets_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.text "introduction"
-    t.integer "mygym"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -93,4 +99,5 @@ ActiveRecord::Schema.define(version: 2020_04_16_131850) do
   add_foreign_key "messages", "users", column: "receive_user_id"
   add_foreign_key "mygyms", "users"
   add_foreign_key "trainings", "users"
+  add_foreign_key "tweets", "users"
 end

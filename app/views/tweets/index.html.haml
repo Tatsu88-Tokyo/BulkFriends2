@@ -1,0 +1,7 @@
+=render "home/header_login"
+.tweets
+  .tweets__title
+    MyGym:#{@gym.gym}
+    =link_to "MyGym変更", edit_mygym_path ,class:"mygym-edit"
+  .tweets__main
+    =link_to "投稿する", new_tweet_path ,class:"tweet-edit"
