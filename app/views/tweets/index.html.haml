@@ -8,18 +8,19 @@
     .tweets__main__contents
       -@tweets.each do |tweet|
         .tweets__main__contents__detail
-          .tweets__main__contents__detail__side
-            .tweets__main__contents__detail__avatar
-              -if tweet.user.avatar.attached?
-                =image_tag (tweet.user.avatar),class:"image-circle"
-              -else
-                =image_tag ("noimage.png"),class:"avatar-circle"
-          .tweets__main__contents__detail__main
-            .tweets__main__contents__detail__nickname
-              =link_to tweet.user.nickname,user_path(tweet.user.id),class:"detail"
-              - if user_signed_in? && current_user.id ==tweet.user_id
-                =link_to '編集', edit_tweet_path(tweet.id),class:"detail"
-                =link_to '削除', tweet_path(tweet.id),method: :delete,class:"detail"
-            .tweets__main__contents__detail__content
-              = simple_format(tweet.content)
+          - if user_signed_in? && current_user.mygym.gym ==tweet.user.mygym.gym
+            .tweets__main__contents__detail__side
+              .tweets__main__contents__detail__avatar
+                -if tweet.user.avatar.attached?
+                  =image_tag (tweet.user.avatar),class:"image-circle"
+                -else
+                  =image_tag ("noimage.png"),class:"avatar-circle"
+            .tweets__main__contents__detail__main
+              .tweets__main__contents__detail__nickname
+                =link_to tweet.user.nickname,user_path(tweet.user.id),class:"detail"
+                - if user_signed_in? && current_user.id ==tweet.user_id
+                  =link_to '編集', edit_tweet_path(tweet.id),class:"detail"
+                  =link_to '削除', tweet_path(tweet.id),method: :delete,class:"detail"
+              .tweets__main__contents__detail__content
+                = simple_format(tweet.content)
 
