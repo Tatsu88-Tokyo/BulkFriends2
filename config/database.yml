@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: BulkFriends2_production
-  username: BulkFriends2
-  password: <%= ENV['BULKFRIENDS2_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
