@@ -3,7 +3,7 @@
 
 # このアプリについて
  - 筋トレ仲間を探す・記録保持・モチベーション維持
- - 制作期間:Mar 6th,2020 ~
+ - 制作期間:Mar 6th,2020 ~ Apr.19th,2020
  - 使用Gemや機能、各担当箇所は以下に記載
 
 # Gem/ver
@@ -59,6 +59,8 @@
 - has_many :reverses_of_message, class_name: 'Message', foreign_key: 'receive_user_id'
 - has_many :received_messages, through: :reverses_of_message, source: :user
 - has_many :trainings
+- has_one :mygym
+- has_many :tweets
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -106,6 +108,24 @@
 |title|string|null: false|
 |content|text||
 |start_time|date|null: false|
+|user|references|foreign_key: true|
+
+### Association
+- belongs_to : user
+
+## mygymsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|gym|integer|null: false, default: 0|
+|user|references|foreign_key: true|
+
+### Association
+- belongs_to : user
+
+## tweetsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|content|text|null: false|
 |user|references|foreign_key: true|
 
 ### Association
