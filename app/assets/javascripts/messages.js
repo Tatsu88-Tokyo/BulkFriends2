@@ -7,7 +7,7 @@ $(function(){
       url:'api/messages',
       type:'get',
       dataType:'json',
-      data: {id: last_message_id}
+      data: {last_id: last_message_id}
     })
     .done(function (messages){
       let insertHTML = '';
@@ -23,7 +23,7 @@ $(function(){
     }
   };
 
-setInterval(reloadMessages, 3000);
+setInterval(reloadMessages, 5000);
 // setTimeout(function () {
 //     location.reload();
 // }, 30000);
