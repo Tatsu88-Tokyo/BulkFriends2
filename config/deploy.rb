@@ -11,7 +11,6 @@ set :repo_url,  'git@github.com:Tatsu88-Tokyo/BulkFriends2.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
-set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2.3.1です
@@ -35,7 +34,7 @@ set :default_env, {
 }
 
 # secrets.yml用のシンボリックリンクを追加
-set :linked_files, %w{ config/secrets.yml }
+set :linked_files, fetch(:linked_files, []).push("config/master.key")
 
 # 元々記述されていた after 「'deploy:publishing', 'deploy:restart'」以下を削除して、次のように書き換え
 
