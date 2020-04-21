@@ -1,10 +1,28 @@
 # README
-作成中＊随時Update予定
+<h1 align="center">BulkFriends</h1>
+<br>
+<p align="center">
+<a><a href="https://www.ruby-lang.org/ja/"><img src="https://user-images.githubusercontent.com/39142850/71774533-1ddf1780-2fb4-11ea-8560-753bed352838.png" width="70px;" /></a>
+<a><a href="https://rubyonrails.org/"><img src="https://user-images.githubusercontent.com/39142850/71774548-731b2900-2fb4-11ea-99ba-565546c5acb4.png" height="60px;" /></a><br>
+<a><a href="http://haml.info/"><img src="https://user-images.githubusercontent.com/39142850/71774618-b32edb80-2fb5-11ea-9050-d5929a49e9a5.png" height="60px;" /></a>
+<a><a href="https://sass-lang.com/"><img src="https://user-images.githubusercontent.com/39142850/71774644-115bbe80-2fb6-11ea-822c-568eabde5228.png" height="60px" /></a>
+<a><a href="https://jquery.com/"><img src="https://user-images.githubusercontent.com/39142850/71774768-d064a980-2fb7-11ea-88ad-4562c59470ae.png" height="65px;" /></a>
+<a><a href="https://aws.amazon.com/"><img src="https://user-images.githubusercontent.com/39142850/71774786-37825e00-2fb8-11ea-8b90-bd652a58f1ad.png" height="60px;" /></a>
+</p><br>
 
 # このアプリについて
  - 筋トレ仲間を探す・記録保持・モチベーション維持
  - 制作期間:Mar 6th,2020 ~ Apr.19th,2020
  - 使用Gemや機能、各担当箇所は以下に記載
+
+# 主な機能
+ - Training:日ごとにトレーニング内容を記録でき、カレンダーで簡単に管理。
+ - Friends:検索フォームに何も入れずに検索ボタンを押すと、登録者が一覧で表示されます。
+           他のユーザーのページにある、ハートマークを押すと友達申請となり、
+           お互いにハートマークが押されると友達となり、メッセージ機能が解放。
+ - Messages:友達となったユーザーとメッセージの交換ができます。(画像含む)
+            Ajaxによる自動更新を搭載しているため、ストレスないやり取りが可能。
+ - Mygym:自身の通っているジムを登録すると、同ジムを登録しているユーザーのつぶやきが表示される。
 
 # Gem/ver
 * Ruby:2.5.1
@@ -30,11 +48,8 @@
  - gem 'devise'
  - gem 'simple_calendar'
 
-# サイトURL（Basic認証キー）
-
-
-## ER図
-
+# サイトURL
+http://18.176.245.132/
 
 ## usersテーブル
 |Column|Type|Options|
@@ -47,8 +62,8 @@
 |mygym|integer||
 
 ### Association
-- has_many: tweets
-- has_many: friends
+- has_many: tweets
+- has_many: friends
 - has_one_attached :avatar
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
 - has_many :followings, through: :following_relationships
@@ -60,7 +75,6 @@
 - has_many :received_messages, through: :reverses_of_message, source: :user
 - has_many :trainings
 - has_one :mygym
-- has_many :tweets
 
 ## messagesテーブル
 |Column|Type|Options|
