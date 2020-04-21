@@ -26,10 +26,9 @@
 
 # Gem/ver
 * Ruby:2.5.1
-
 * Rails:5.2.4.1
 
-* System dependencies
+*** System dependencies ***
  - gem 'mysql2':0.4.4
  - gem 'sass-rails:5.0
  - gem 'jquery-rails'
@@ -62,7 +61,6 @@ http://18.176.245.132/
 |mygym|integer||
 
 ### Association
-- has_many: tweets
 - has_many: friends
 - has_one_attached :avatar
 - has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
@@ -75,6 +73,8 @@ http://18.176.245.132/
 - has_many :received_messages, through: :reverses_of_message, source: :user
 - has_many :trainings
 - has_one :mygym
+- has_many: tweets
+
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -85,7 +85,7 @@ http://18.176.245.132/
 |receive_user|references|foreign_key: {to_table: :users}|
 
 ### Association
-- belongs_to : user
+- belongs_to : user
 - belongs_to :receive_user
 
 ## Relationshipsテーブル
@@ -95,7 +95,7 @@ http://18.176.245.132/
 |following_id|integer|null: false|
 
 ### Association
-- belongs_to :follower, class_name: "User"
+- belongs_to :follower, class_name: "User"
 - belongs_to :following, class_name: "User"
 
 ## Active_storage_blobsテーブル(アバター)
@@ -125,7 +125,7 @@ http://18.176.245.132/
 |user|references|foreign_key: true|
 
 ### Association
-- belongs_to : user
+- belongs_to : user
 
 ## mygymsテーブル
 |Column|Type|Options|
@@ -134,7 +134,7 @@ http://18.176.245.132/
 |user|references|foreign_key: true|
 
 ### Association
-- belongs_to : user
+- belongs_to : user
 
 ## tweetsテーブル
 |Column|Type|Options|
@@ -143,4 +143,4 @@ http://18.176.245.132/
 |user|references|foreign_key: true|
 
 ### Association
-- belongs_to : user
+- belongs_to : user
