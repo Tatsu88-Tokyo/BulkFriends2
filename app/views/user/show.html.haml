@@ -31,7 +31,7 @@
   .mypage_main
     -if current_user.id == @user.id
       .mypage_main_menus
-        =link_to trainings_path,class:"mypage_main_menus_trainings","data-turbolinks": false do
+        =link_to trainings_path(@user.id),class:"mypage_main_menus_trainings","data-turbolinks": false do
           .mypage_main_menus_trainings_details
             %h1.menus_title
               Trainings
@@ -48,16 +48,16 @@
             %h1.menus_title
               MyGYM
     -else
-      .otherspage_main_menus
-        .otherspage_main_menus_trainings
-          .otherspage_main_menus_trainings_details
-            %h1.menus_title
-              Trainings
-        .otherspage_main_menus_friends
-          .otherspage_main_menus_friends_details
-            %h1.menus_title
-              Friends
-        .otherspage_main_menus_messages
-          .otherspage_main_menus_messages_details
-            %h1.menus_title
-              Messages
+      -# .otherspage_main_menus
+      -#   =link_to trainings_path,class:"otherspage_main_menus_trainings","data-turbolinks": false do
+      -#     .otherspage_main_menus_trainings_details
+      -#       %h1.menus_title
+      -#         Trainings
+      -#   .otherspage_main_menus_friends
+      -#     .otherspage_main_menus_friends_details
+      -#       %h1.menus_title
+      -#         Friends
+      -#   .otherspage_main_menus_messages
+      -#     .otherspage_main_menus_messages_details
+      -#       %h1.menus_title
+      -#         Messages
